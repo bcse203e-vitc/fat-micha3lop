@@ -1,0 +1,40 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Water Bill Calculator</title>
+</head>
+<body>
+    <h3>Enter Water Consumption (in Litres):</h3>
+    <input type="number" id="value">
+    <h3>Service charge: 50 rupees</h3>
+    <button onclick="calculateBill()">Calculate</button>
+    <h3 id="total"></h3>
+</body>
+<script>
+    function calculateBill(){
+        let value = parseInt(document.getElementById("value").value);
+
+        if (value < 0) {
+            alert("Enter a positive number");
+            return;
+        }
+        if (value <= 15) {
+            let total = 0;
+            total = (value * 2) + 50;
+            document.getElementById("total").innerHTML = "Total = " + total;
+        } 
+        else if (value > 15 && value < 35) {
+            let total = 0;
+            let a = value - 15;
+            total = (15 * 2) + (a * 5) + 50;
+            document.getElementById("total").innerHTML = "Total = " + total;
+        } 
+        else if (value >= 35) {
+            let total = 0;
+            total = (value * 10) + 50;
+            document.getElementById("total").innerHTML = "Total = " + total;
+        }
+    }
+</script>
+</html>
